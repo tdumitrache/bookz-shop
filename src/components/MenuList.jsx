@@ -11,7 +11,8 @@ export default class MenuList extends Component {
                 {
                     id: 1,
                     title: "Psihologie",
-                    image: "https://i.imgur.com/OWSZGHV.jpg"
+                    image: "https://i.imgur.com/OWSZGHV.jpg",
+                    link: "psihologie"
                 },
                 {
                     id: 2,
@@ -43,13 +44,11 @@ export default class MenuList extends Component {
         return (
             <Flex direction="row" flexWrap="wrap"  w="100%" justify="space-between">
                 {
-                    this.state.sections.map(section => {
+                    this.state.sections.map(({id, ...sectionProps}) => {
                         return (
                             <MenuItem 
-                                title={section.title}
-                                image={section.image}
-                                isLarge={section.isLarge}
-                                key={section.id}
+                                {...sectionProps}
+                                key={id}
                             />
                         )
                     })

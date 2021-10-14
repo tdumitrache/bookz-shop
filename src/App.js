@@ -1,9 +1,14 @@
 import { Flex } from "@chakra-ui/react";
-import Home from "./pages/Home";
+import HomePage from "./pages/HomePage";
+import ShopPage from "./pages/ShopPage";
+import { Route, Switch } from 'react-router-dom';
 
 function App() {
   return (
-    <Home />
+    <Switch>
+      <Route exact path="/" component={HomePage}/>
+      <Route path="/shop" component={ShopPage}/>
+    </Switch>
   );
 }
 

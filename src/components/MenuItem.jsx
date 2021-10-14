@@ -1,9 +1,12 @@
 import React, {useRef} from "react";
 import { Flex, Text, useColorModeValue } from "@chakra-ui/react";
+import { withRouter } from "react-router-dom";
 
-function MenuItem({ title, image, isLarge }) {
+function MenuItem({ title, image, isLarge, history, match, link}) {
   const textColor = useColorModeValue("gray.700", "#fff");
   const ref = useRef();
+
+  console.log(history, link);
 
   return (
     <Flex
@@ -12,7 +15,7 @@ function MenuItem({ title, image, isLarge }) {
       bgImage={image}
       minW="30%"
       flex="1 1 auto"
-      m="10px"
+      m="8px"
       h={isLarge ? "380px" : "240px"}
       bgSize="cover"
       bgPosition="center center"
@@ -23,6 +26,7 @@ function MenuItem({ title, image, isLarge }) {
       onMouseEnter={() => ref.current.style.opacity = '0.95'}
       onMouseLeave={() => ref.current.style.opacity = '0.7'}
       fontFamily='Poppins'
+      onClick={() => history.push(`${match.url}${link}`)}
     >
       <Flex
       ref={ref}
@@ -59,4 +63,4 @@ function MenuItem({ title, image, isLarge }) {
   );
 }
 
-export default MenuItem;
+export default withRouter(MenuItem);

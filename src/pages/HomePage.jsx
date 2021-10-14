@@ -2,7 +2,7 @@ import React from 'react';
 import { Box } from "@chakra-ui/react";
 import  MenuList from "../components/MenuList";
 
-function Home() {
+function HomePage() {
     return (
         <Box minH="1000px">
             <Box minH="600px" w="80vw" mx="auto">
@@ -12,4 +12,4 @@ function Home() {
     )
 }
 
-export default Home
+export default HomePage
